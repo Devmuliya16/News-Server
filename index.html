@@ -35,22 +35,28 @@
                     <li onclick="country('australia')"> <img src="https://flagicons.lipis.dev/flags/4x3/au.svg">Australia</li>
                 </ul>
             </div>
-            <input type="search" placeholder="search the topic">
-            <button><i class="fa-solid fa-magnifying-glass"></i>  Search</button>
+            <input type="search" placeholder="search the topic" id="searchinput">
+            <button id="searchbtn"><i class="fa-solid fa-magnifying-glass"></i>  Search</button>
         </div>
     </nav>
 
     
     <div class="container">
         <span id="header">
-            <span> </span>
-            <span> </span>
+            <!-- here is the tag element -->
         </span>
         <!-- here is the news element -->
+
+
+        <!-- here is scroll up button -->
+        <div class="upbtndiv">
+          <button id="upbtn" onclick="getscrollup()"><i class="fa-solid fa-angles-up"></i></button>
+        </div>
     </div>
+
     <div class="copyright">
-        <p><i class="fa-solid fa-copyright"></i> 2022 Created by Dev Muliya all rights reserved.</p>
-        <p>visit here: <a><i class="fa-brands fa-square-github" style="color: white;"></i> Github </a> </p>
+        <p><i class="fa-regular fa-copyright"></i> 2022 Created by Dev Muliya all rights reserved.</p>
+        <p>visit here: <a href="https://github.com/Devmuliya16"><i class="fa-brands fa-github"></i></a> </p>
     </div>
 
 </body>
