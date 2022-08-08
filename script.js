@@ -1,6 +1,7 @@
 //api zqldtSxZp7XqCNBViiqvCVGsLWio0WLO
 const api ="zqldtSxZp7XqCNBViiqvCVGsLWio0WLO";
-const url = `https://newsapi.org/v2/top-headlines?sources=google-news-in&apiKey=0728bb422eda4d8ebc9ddd52fcaee104`;
+const url = `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${api}`;
+
 
 let content;
 fetch(url).then(responce => responce.json())
