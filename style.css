@@ -1,0 +1,134 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    top: 0;
+    font-family: sans-serif;
+}
+/* button hover effect */
+button:hover{
+    background-color: transparent;
+    color: white;
+    box-shadow: inset 0 0 5px 0px white;
+    transition: 0.2s;
+}
+button:active{
+    background-color: gray;
+    text-shadow: 0 0 5px white;
+    transition: 0.2s;
+}
+.navbar{
+    display: flex;
+    position: sticky;
+    top: -65px;
+    z-index: 5;
+    box-shadow: 0 -1px 20px 0 black ;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 1px;
+    min-width: 50px;
+}
+.right{
+    margin-left: auto;
+}
+.right button, input{
+    height: 40px;
+    border-radius: 20px;
+    font-size: 15px;
+    outline: none;
+    padding: 10px;
+}
+.dropcontainer{
+    display: inline-block;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+.droplist{
+    position: absolute;
+    z-index: 2;
+    color: black;
+    background-color: white;
+    box-shadow: 0 0 5px 0 black;
+    display: none;
+    top: 25px;
+    padding-left: 0px;
+    padding: 0px;
+}
+.droplist li{
+    list-style: none;
+    margin: 5px;
+    padding: 5px;
+    font-size: 20px;
+    display: flex;
+    transition: 0.3s;
+}
+.droplist li img{
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    display: block;
+}
+.droplist li:hover{
+    background-color: black;
+    color: white;
+}
+.droplist li:active{
+    color: rgb(128, 128, 172);
+}
+
+/* hover effect */
+.dropcontainer:hover .droplist{
+    display: block;
+}
+
+
+#header{
+    position: absolute;
+    left: 0px;
+}
+#header span{
+    color: white;
+    box-shadow: 2px 2px 4px 0px black;
+    background-color: rgb(128, 128, 172);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
+
+.container{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.element{
+    background-color: rgb(224, 222, 255);
+    box-shadow: 0px 0px 6px 0px black;
+    display: block;
+    width: 620px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 10px;
+}
+.element img{
+    width:100%;
+}
+.text{
+    margin: 25px;
+}
+.copyright{
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    padding-left: 10px;
+    position: relative;
+    bottom: 0;
+    width: 99.3%;
+}
