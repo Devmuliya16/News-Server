@@ -3,6 +3,7 @@ body{
     padding: 0px;
     top: 0;
     font-family: sans-serif;
+    min-width: 250px;
 }
 /* button hover effect */
 button:hover{
@@ -28,12 +29,11 @@ button:active{
     background-color: black;
     color: white;
     padding: 1px;
-    min-width: 50px;
 }
 .right{
     margin-left: auto;
 }
-.right button, input{
+.right button,.right input{
     height: 40px;
     border-radius: 20px;
     font-size: 15px;
@@ -88,12 +88,15 @@ button:active{
 #header{
     position: absolute;
     left: 0px;
+    padding: 5px;
+    z-index: 2;
 }
 #header span{
     color: white;
     box-shadow: 2px 2px 4px 0px black;
     background-color: rgb(128, 128, 172);
     padding: 5px;
+    margin: 5px;
     border-radius: 10px;
 }
 
@@ -124,11 +127,52 @@ button:active{
     margin: 25px;
 }
 .copyright{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.959);
     color: white;
     font-size: 20px;
     padding-left: 10px;
     position: relative;
     bottom: 0;
-    width: 99.3%;
+    width: auto;
+    padding: 20px;
+}
+
+.upbtndiv{
+    position:fixed;
+    background-color: black;
+    padding: 5px;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: none;
+    z-index: 5;
+}
+#upbtn{
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    font-size: larger;
+}
+
+.spinner{
+    position: fixed;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    border: 10px solid rgb(128, 128, 172);
+    border-top-color:transparent ;
+    border-radius: 50%;
+    animation: rotate infinite 1s;
+    display: hide;
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(359deg);
+    }
 }
