@@ -6,7 +6,7 @@ let content;
 fetch(url).then(responce => responce.json())
 .then((data)=>{
     console.log(data);
-
+    console.log('google');
     //send the data to the show function
     showdata(JSON.stringify(data));
 });
