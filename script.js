@@ -5,15 +5,10 @@ const tick = '<i class="fa-solid fa-check"></i>';
 const trend = '<i class="fa-solid fa-arrow-trend-up"></i>';
 const err = '<i class="fa-solid fa-triangle-exclamation"></i>';
 const wrong = '<i class="fa-solid fa-xmark"></i>';
-
-let content;
-fetch(url).then(responce => responce.json())
-.then((data)=>{
-    //send the data to the show function
-    showdata(data);
-});
+const search = '<i class="fa-solid fa-magnifying-glass"></i>';
 
 //for creating the element and uppending it
+//common for all
 function createUppend(topic,title,news,img,time){
     let element = document.createElement('div');
     element.className='element';
@@ -31,25 +26,42 @@ function createUppend(topic,title,news,img,time){
 
     document.getElementsByClassName('container')[0].appendChild(element);
 }
-
+//for about tags common for all
 function setheader(topic,count,fontawsome){
-    let tagcontainer = document.getElementById('header');
+    let tagcontainer = document.createElement('span');
+    tagcontainer.id='header';
     tagcontainer.style.display='block';
-    tagcontainer.children[0].innerHTML+=`${topic} ${fontawsome[0]}`;
-    tagcontainer.children[1].innerHTML+=`showing results: ${count} ${fontawsome[1]} `;
+    tagcontainer.innerHTML=`<span> ${topic} ${fontawsome[0]} </span>
+                            <span> showing results: ${count} ${fontawsome[1]}</span>`;
+    document.getElementsByClassName('container')[0].appendChild(tagcontainer);
 }
 
 
 
 
 
-//show function
+
+//fetch for home
+fetch(url)
+.then((responce) => responce.json())
+.then((data)=>{
+    //send the data to the show function
+    showdata(data);
+    hidespinner();
+});
+//looping and appending for home
 function showdata(data){
     let newsArr = data.results;
-    if(newsArr!=0){  
+    if(newsArr.length!=0){  
+
         let arr = [trend,tick];
         setheader('News in trend',newsArr.length,arr);
+
         for(obj of newsArr){
+            let image='image';
+            if(obj.multimedia.length!=0)
+                image=obj.multimedia[1].url;
+            
             createUppend(obj.section,obj.title,obj.abstract,obj.multimedia[1].url,obj.published_date);
         }
     }
@@ -59,24 +71,73 @@ function showdata(data){
     }
 }
 
-//for drop down
 
+
+
+//fetch for countries
 function country(countryName){
     let url2= `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${countryName}&api-key=${api}`;
     fetch(url2)
     .then(responce => responce.json())
     .then((data)=>{
         //send the data to the show function
-    countrynews(data);
+        showdataSearch(data,countryName);
     });
-
 }
 
-function countrynews(data){
-    let countrynewsarr=data.response.docs;
-    
+
+
+//fetch for searching
+let findbtn = document.getElementById('searchbtn');
+findbtn.addEventListener('click',()=>{
+    let searchContent = document.getElementById('searchinput').value;
+    let url3 = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchContent}&api-key=${api}`;
+
+    fetch(url3)
+    .then(responce=> responce.json())
+    .then((data)=>{
+        showdataSearch(data,searchContent);
+    });
+})
+
+//looping and uppending for search and country
+function showdataSearch(data,name){
+    let searchNewsarr=data.response.docs;
     document.getElementsByClassName('container')[0].innerHTML='';
-    for(element of countrynewsarr){
-        createUppend(element.keywords[0].value,element.headline.main,element.lead_paragraph,`http://www.nytimes.com/${element.multimedia[0].url}`,element.pub_date);
+
+    if(searchNewsarr.length!=0){
+
+        let arr=[search,tick];
+        setheader(name,searchNewsarr.length,arr);
+
+        for(element of searchNewsarr){
+            let image = 'image';
+            if(element.multimedia.length!=0)
+                image=`http://www.nytimes.com/${element.multimedia[0].url}`;
+
+            createUppend(element.keywords[0].value,element.headline.main,element.lead_paragraph,`${image}`,element.pub_date);
+        }
+    }
+    else{
+        let arr=[err,wrong];
+        setheader('Error: try again after some time ',searchNewsarr.length,arr);
     }
 }
+
+
+// ********************************************************************************
+//scroll up button
+window.onscroll = ()=>{
+    if(document.documentElement.scrollTop > 200)
+        document.getElementsByClassName('upbtndiv')[0].style.display='block';
+    else
+        document.getElementsByClassName('upbtndiv')[0].style.display='none';
+}
+
+function getscrollup(){
+        document.documentElement.scrollTop=0;
+}
+
+
+//*************************************************************************
+//for spinner
