@@ -138,23 +138,32 @@ function showdataSearch(data,name){
 
 // ********************************************************************************
 //scroll up button
+let progressBar = document.getElementsByClassName('progress-bar')[0];
 window.onscroll = ()=>{
     if(document.documentElement.scrollTop > 200)
         document.getElementsByClassName('upbtndiv')[0].style.display='block';
     else
-        document.getElementsByClassName('upbtndiv')[0].style.display='none';
-}
-
-function getscrollup(){
-        document.documentElement.scrollTop=0;
-}
-
-//*********************************************************************************
-// progress bar
-let progressBar = document.getElementsByClassName('progress-bar')[0];
-window.onscroll = ()=>{
+    document.getElementsByClassName('upbtndiv')[0].style.display='none';
+    
+    
+    //*********************************************************************************
+    // progress bar
     let getheight = document.documentElement.scrollTop;
     let totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     progressBar.style.width=`${(getheight/totalHeight)*100}%`;
 }
 
+function getscrollup(){
+        document.documentElement.scrollTop=0;
+    }
+
+    
+    
+
+//********************************************************************************
+//slidebar for sharing
+function toggleside(){
+    let sidebarlink =   document.getElementsByClassName('sidebarlink')[0];
+    (sidebarlink.style.display=='none') ? sidebarlink.style.display='block' : sidebarlink.style.display='none'
+
+}
