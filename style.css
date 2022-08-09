@@ -168,3 +168,24 @@ button:active{
     box-shadow:0px 0px 7px 1px rgb(128, 128, 172) ;
     border-radius: 20px;
 }
+
+.sidebar{
+    position: fixed;
+    bottom: 200px;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.753);
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    align-items: center;
+    padding: 10px;
+}
+.sidebarlink{
+    display: none;
+}
+.sidebar h1 , .sidebar a{
+   color: white;
+}
+.sidebar a:hover{
+    color: rgb(128, 128, 172);
+}
