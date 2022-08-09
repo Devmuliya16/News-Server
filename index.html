@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News server -online</title>
+
+    <!-- inject fontawsome -->
+    <script src="https://kit.fontawesome.com/2687fb36d2.js" crossorigin="anonymous"></script>
+    
+    <!-- inject favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+    
+    <!-- inject css -->
+    <link href="style.css" rel="stylesheet"></link>
+
+</head>
+<body>
+    <nav class="navbar">
+        <h1><i class="fa-solid fa-newspaper"></i>
+        News Server</h1>
+        <div class="right">
+            <!-- dropdown -->
+            <div class="dropcontainer">
+                <button class="dropbtn">Countries <i class="fa-solid fa-globe"></i> </button>
+                <ul class="droplist">
+                    <li onclick="country('india')"> <img src="https://flagicons.lipis.dev/flags/4x3/in.svg">India</li>
+                    <li onclick="country('america')"> <img src="https://flagicons.lipis.dev/flags/4x3/us.svg">America</li>
+                    <li onclick="country('russia')"> <img src="https://flagicons.lipis.dev/flags/4x3/ru.svg">Russia</li>
+                    <li onclick="country('china')"> <img src="https://flagicons.lipis.dev/flags/4x3/cn.svg">China</li>
+                    <li onclick="country('japan')"> <img src="https://flagicons.lipis.dev/flags/4x3/jp.svg">Japan</li>
+                    <li onclick="country('britain')"> <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg">U.K.</li>
+                    <li onclick="country('france')"> <img src="https://flagicons.lipis.dev/flags/4x3/fr.svg">France</li>
+                    <li onclick="country('australia')"> <img src="https://flagicons.lipis.dev/flags/4x3/au.svg">Australia</li>
+                </ul>
+            </div>
+            <input type="search" placeholder="search the topic" id="searchinput">
+            <button id="searchbtn"><i class="fa-solid fa-magnifying-glass"></i>  Search</button>
+        </div>
+    </nav>
+
+    
+    <div class="container">
+        <span id="header">
+            <!-- here is the tag element -->
+        </span>
+        <!-- here is the news element -->
+
+
+        <!-- here is scroll up button -->
+    </div>
+    <div class="upbtndiv">
+      <button id="upbtn" onclick="getscrollup()"><i class="fa-solid fa-angles-up"></i></button>
+    </div>
+
+
+
+    <!-- progress bar -->
+    <div class="progress-bar"></div>
+
+    <!-- copyright bar -->
+    <div class="copyright">
+        <p><i class="fa-regular fa-copyright"></i> 2022 Created by Dev Muliya all rights reserved.</p>
+        <p>@ visit here: <a href="https://github.com/Devmuliya16"><i class="fa-brands fa-github"></i></a> </p>
+        <a href="whatsapp://send?text='https://github.com/Devmuliya16'" data-action="share/whatsapp/share" target="_blank">Share via Whatsapp</a>
+    </div>
+
+</body>
+
+<!-- inject js -->
+<script src='script.js'></script>
+</html>
