@@ -179,8 +179,8 @@ function nativeShare(id){
     let elem = document.getElementById(`${id}`);
         let data = {
           url: window.location.href,
-          title: elem.children[1].children[1].innerHTML,
-          text: elem.children[1].children[3].innerHTML,
+          title: elem.children[1].children[3].innerHTML + elem.children[1].children[1].innerHTML,
+          text: "NEWS SERVER ONLINE",
         }
         try{
           navigator.share(data);
