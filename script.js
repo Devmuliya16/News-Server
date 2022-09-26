@@ -1,4 +1,4 @@
-const api =  mykey = process.env.NEWS_API;
+const api =  process.env.NEWS_API;
 const url = `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${api}`;
 
 
