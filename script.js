@@ -1,5 +1,4 @@
-//api zqldtSxZp7XqCNBViiqvCVGsLWio0WLO
-const api ="zqldtSxZp7XqCNBViiqvCVGsLWio0WLO";
+const api = secrets.NEWS_API;
 const url = `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${api}`;
 
 
